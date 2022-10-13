@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import UserDetails from './pages/Users/userDetails';
 import NavBar from './components/NavBar';
+import SideBar from './components/Sidebar';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login/>} />
       <Route element={<DashboardLayout/>}>
-        <Route path="dashboard" element={<Users/>}/>
+        <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="/users">
           <Route index element={<Users/>}/>
           <Route path=':id' element={<UserDetails/>}/>
@@ -33,10 +34,13 @@ function NotFound() {
 
 function DashboardLayout() {
   return (
-      <div>
-          <NavBar />
+      <>
+        <NavBar />
+        <div className='container'>
+          <SideBar/>
           <Outlet/>
-      </div>
+        </div>
+      </>
   );
 }
 //10.56
