@@ -71,7 +71,7 @@ button[disabled] {
 /* 283/1440 *100 */
 .container{
   display: grid;
-  flex-grow: 1;
+  /* overflow-y: hidden; */
   align-items: flex-start;
   grid-template-columns: repeat(2, 20% 80%);
 }

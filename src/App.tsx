@@ -3,9 +3,9 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
-import UserDetails from './pages/Users/userDetails';
 import NavBar from './components/NavBar';
 import SideBar from './components/Sidebar';
+import UserDetail from './components/UserDetail';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="/users">
           <Route index element={<Users/>}/>
-          <Route path=':id' element={<UserDetails/>}/>
+          <Route path='details' element={<UserDetail/>}/>
         </Route>
       </Route>
       <Route path="*" element={<NotFound/>} />
@@ -34,13 +34,13 @@ function NotFound() {
 
 function DashboardLayout() {
   return (
-      <>
+      <div style={{overflowY:"hidden", height:"100vh"}}>
         <NavBar />
         <div className='container'>
           <SideBar/>
           <Outlet/>
         </div>
-      </>
+      </div>
   );
 }
 //10.560

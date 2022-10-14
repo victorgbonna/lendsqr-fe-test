@@ -7,7 +7,7 @@ const useAxios = (
   ) => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState({});
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -15,7 +15,7 @@ const useAxios = (
     const fetchData = async () => {
       try {
         const response = await axios({
-          url: url,
+          url: baseUrl+url,
           method: method,
           data: body,
           headers:headers

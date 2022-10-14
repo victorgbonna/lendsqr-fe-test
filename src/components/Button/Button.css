@@ -1,0 +1,21 @@
+button{
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.btn1{
+    border: 1px solid #E4033B;
+    color: #E4033B;
+    width: fit-content;
+}
+.btn2{
+    border: 1px solid #39CDCC;
+    color: #39CDCC;
+    width: fit-content;
+}
