@@ -1,0 +1,37 @@
+.formipt2{
+    font-family: "Inter";
+    font-size: 13px;
+    display: flex;
+    column-gap: 10px;
+    border-radius: 20px;
+    padding:8px 10px;
+    cursor: pointer;
+    border: 2px solid #ECF0F3;
+}
+
+.listcontainer ul {
+    background: #ffffff;
+    border: 2px solid #ECF0F3;
+    z-index: 78;
+    max-height: 200px;
+    padding: 0 13px;
+    overflow-y: auto;
+    /* min-height: 60px; */
+    border-radius: 10px;
+    position: absolute;
+    /* z-index: 2; */
+    /* bottom: 110%; */
+    width: 160%;
+  }
+  .listcontainer li {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 20px;
+    /* identical to box height, or 100% */
+  
+    color: #0b213e;
+    padding: 5px;
+  }

@@ -10,15 +10,9 @@ import "./UserDetail.css";
 // Get user details by id https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id 
 
 export default function UserDetail() {
-  const {error, response, loading}= useAxios({
+  let {error, response, loading}= useAxios({
     url:"/v1/users/2"
   })
-  const variantsForBlButtons={
-
-  }
-  const personalInfo=[
-    {kind:"FULL NAME", propName:"k"}
-  ]
   console.log({error, response})
   if(loading){
     return <Spinner/>

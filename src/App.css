@@ -7,8 +7,26 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}
 button {
   cursor: pointer;
+}
+
+.parent{
+  overflow-y: hidden;
+  height: 100vh;
 }
 a {
   cursor: pointer;
@@ -34,6 +52,7 @@ ul {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -71,15 +90,36 @@ button[disabled] {
 /* 283/1440 *100 */
 .container{
   display: grid;
-  /* overflow-y: hidden; */
+  overflow: hidden;
+  width: 100vw;
+  max-width: 100%;
+
   align-items: flex-start;
   grid-template-columns: repeat(2, 20% 80%);
 }
 @media only screen and (max-width: 700px) {
+  .parent{
+    overflow-y: scroll;
+    height: fit-content;
+  }
   .container{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
+  ::-webkit-scrollbar {
+    width: 8px;
+    display: none;
+  }
   
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  display: none;
+  } 
 
 }

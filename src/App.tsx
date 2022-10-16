@@ -11,11 +11,12 @@ import UserDetail from './components/UserDetail';
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Login/>} />
       <Route path="/login" element={<Login/>} />
       <Route element={<DashboardLayout/>}>
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="/users">
-          <Route index element={<Users/>}/>
+          <Route index element={<Dashboard/>}/>
           <Route path='details' element={<UserDetail/>}/>
         </Route>
       </Route>
@@ -34,7 +35,7 @@ function NotFound() {
 
 function DashboardLayout() {
   return (
-      <div style={{overflowY:"hidden", height:"100vh"}}>
+      <div className='parent'>
         <NavBar />
         <div className='container'>
           <SideBar/>

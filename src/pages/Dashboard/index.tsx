@@ -1,4 +1,5 @@
 import Card from "../../components/Card";
+import Maintable from "../../components/Maintable";
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -26,7 +27,7 @@ export default function Dashboard() {
               <Card key={index} {...contents} index={index}/>
           )}
         </div>
-        
+        <Maintable/>
       </div>
     );
 }
