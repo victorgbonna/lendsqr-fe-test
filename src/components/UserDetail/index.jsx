@@ -11,18 +11,19 @@ import "./UserDetail.css";
 
 export default function UserDetail() {
   let {error, response, loading}= useAxios({
-    url:"/v1/users/2"
+    url:"/v1/users/"+JSON.parse(window.localStorage.getItem('userId'))
   })
+  
   console.log({error, response})
   if(loading){
     return <Spinner/>
   }
     return (
       <div className="dashboard">
-        <div className="flex">
+        <Link className="flex" to="/users">
           <img src="/svg/detail/arrow-right.svg" alt="arrow left" />
           <p>Back to Users</p>
-        </div>
+        </Link>
         <div className="flex" style={{justifyContent:"space-between"}}>
           <h3>User Details</h3>
           <div className="flex" style={{columnGap:'20px'}}>

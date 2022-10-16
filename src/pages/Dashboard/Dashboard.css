@@ -2,7 +2,7 @@
     font-family: 'Work Sans';
 }
 .dashboard{
-    padding: 60px;
+    padding: 60px 30px;
     background: #e5e5e55e;
     overflow-y: scroll;
     height: 80vh;

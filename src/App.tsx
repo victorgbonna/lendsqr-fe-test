@@ -17,7 +17,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="/users">
           <Route index element={<Dashboard/>}/>
-          <Route path='details' element={<UserDetail/>}/>
+          <Route path='detail' element={<UserDetail/>}/>
         </Route>
       </Route>
       <Route path="*" element={<NotFound/>} />

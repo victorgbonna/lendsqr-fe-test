@@ -1,22 +1,45 @@
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Logo.css'
 
-export default function AccordionForMobile() {
+export default function AccordionForMobile({users}:{users:Array<any>}) {
+  const [actAcc, setActAcc] = useState(0);
+  const [showAcc, setShowAcc] = useState(false);
+  const navigate = useNavigate();
+
+  const displayAcc = (index:number) => {
+    console.log("displayed");
+    setActAcc(index);
+    setShowAcc(true);
+  };
+  const hideAcc = () => {
+    console.log("clicked");
+    setShowAcc(false);
+    setActAcc(-1);
+  };
+
+  const saveToLocalStorageB4redirect=(e:any,userId:any)=>{
+    e.preventDefault()
+    window.localStorage.setItem('userId', JSON.stringify(userId));
+    console.log(userId)
+    navigate("/users/detail");
+  }
     return (
-        <div className={styles.mobile}>
-        {orgs.map((an_org, index) => (
+        <div className='mobile'>
+        {users.map((user={}, index) => (
           <div
             key={index}
-            className={styles.accord}
+            className='accord'
             onClick={
               showAcc && actAcc === index
                 ? () => hideAcc()
                 : () => displayAcc(index)
             }
           >
-            <div className={styles.accordflex}>
-              <div className={styles.accorddt}>
-                <h4>{an_org.org.name}</h4>
-                <p>{an_org.org.email}</p>
+            <div className='accordflex'>
+              <div className='accorddt'>
+                <h4>{user.username}</h4>
+                <p>{user.orgName}</p>
               </div>
 
               <svg
@@ -40,12 +63,9 @@ export default function AccordionForMobile() {
               </svg>
             </div>
             <AccordionList
+              saveToLocalStorageB4redirect={saveToLocalStorageB4redirect}
               show={showAcc && actAcc == index}
-              act={an_org.org}
-              cols={cols}
-              saveToLocalStorageB4move={saveToLocalStorageB4move}
-              isDirectLink={isDirectLink}
-              parentPath={parentPath}
+              user={user}
             />
           </div>
         ))}
@@ -53,14 +73,16 @@ export default function AccordionForMobile() {
     );
 }
 function AccordionList({
-    saveToLocalStorageB4move,
-    isDirectLink,
+  saveToLocalStorageB4redirect,
     show = false,
+    user
+  }:{saveToLocalStorageB4redirect:any,
+    show: boolean, user: any
   }) {
     // console.log({act,cols})
     return (
       <div
-        className={styles.dropdown}
+        className='dropdown'
         style={
           show
             ? {
@@ -77,18 +99,18 @@ function AccordionList({
               }
         }
       >
-        <div className={styles.fields}>
-          <h5>Category</h5>
-          <p>{item.category}</p>
+        <div className='fields'>
+          <h5>Email</h5>
+          <p>{user.email}</p>
         </div>
-        <div className={styles.fields}>
-          <h5>Username</h5>
-          <p>{item.username}</p>
+        <div className='fields'>
+          <h5>Phone Number</h5>
+          <p>{user.phoneNumber}</p>
         </div>
-        <div className={styles.fields}>
+        <div className='fields'>
           <h5>Date Created</h5>
           <p>
-            {new Date(item.createdAt).toLocaleDateString("en-us", {
+            {new Date(user.createdAt).toLocaleDateString("en-us", {
               weekday: "long",
               year: "numeric",
               month: "short",
@@ -96,27 +118,22 @@ function AccordionList({
             })}
           </p>
         </div>
-        <div className={styles.fields}>
-          <h5>Options</h5>
-          <div
-            className={styles.alink}
-            style={{ cursor: "pointer", fontSize: "0.7em", color: "#ffa500" }}
-          >
-            {isDirectLink ? (
-              <Link href={`/organizations/${item.name}`}>
-                <a onClick={(e)=>saveToLocalStorageB4move(e, `/organizations/${item.name}`)} 
-                className={styles.seemore}>
-                  <p>details</p>
-                  <img src="/svg/more.svg" />
-                </a>
-              </Link>
-            ) : (
-              <button className={styles.seemore}>
-                <p>show all</p>
-                <img src="/svg/more.svg" />
-              </button>
-            )}
-          </div>
+        <div className='fields'>
+          {/* <div
+            className='alink'> */}
+          <Link to='/users/detail' onClick={(e)=>saveToLocalStorageB4redirect(e, user.id)}>
+            <img src="/svg/table/view.svg" alt="view" />
+            <p>View Details</p>
+          </Link>
+            <div onClick={()=> null}>
+              <img src="/svg/table/blacklist.svg" alt="blacklist" />
+              <p>Blacklist User</p>
+            </div>
+            <div onClick={()=> null}>
+              <img src="/svg/table/activate.svg" alt="blacklist" />
+              <p>Activate User</p>
+            </div>
+          {/* </div> */}
         </div>
       </div>
     );

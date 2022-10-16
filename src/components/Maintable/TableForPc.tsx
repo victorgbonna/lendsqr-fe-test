@@ -3,21 +3,7 @@ import TableEntry from "./TableEntry";
 import './Maintable.css'
 
 export default function TableForPc({users}:{users:Array<Object>}) {
-  // console.log({ orgs });
-
-  const [actAcc, setActAcc] = useState(0);
-  const [showAcc, setShowAcc] = useState(false);
-
-  // const displayAcc = (index) => {
-  //   console.log("displayed");
-  //   setActAcc(index);
-  //   setShowAcc(true);
-  // };
-  // const hideAcc = () => {
-  //   console.log("clicked");
-  //   setShowAcc(false);
-  //   setActAcc(-1);
-  // };
+  
   const cols=[
     "ORGANIZATION", "USERNAME", "EMAIL", "PHONE NUMBER",
     "DATE JOINED", "STATUS", ""

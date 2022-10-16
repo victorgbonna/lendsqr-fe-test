@@ -1,14 +1,14 @@
 .maintableContainer{
-  padding: 30px;
-  background: #ffffff;
+  position: relative;
 }
-
 
 .table {
     border-collapse: separate;
     border-spacing: 0 0px;
     width: 100%;
     margin-bottom: 20px;
+    padding: 30px;
+    background: #ffffff;
   }
   
   .table td{
@@ -54,7 +54,7 @@ color: #545F7D;
   .mobile {
     display: none;
   }
-  .Active, .Pending, .Inactive{
+  .Active, .Pending, .Inactive, .Blacklisted{
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
@@ -85,6 +85,81 @@ color: #545F7D;
     background: #39cd638e;
     border-radius: 100px;
     color: #39CD62 !important;
+  }
+  .showDetails{
+    position: absolute;
+    border: 1px solid rgba(84, 95, 125, 0.04);
+box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    top: 100%;
+    background: #ffffff;
+    right: -10px;
+    z-index: 56;
+    padding: 20px;
+  }
+  .showDetails>div, .showDetails a{
+    display: flex;
+    column-gap: 6px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+  .showDetails p{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #545F7D;
+  }
+  .filterForm{
+    padding: 30px;
+    position: absolute;
+    align-items: flex-start;
+    width: fit-content;
+    top: 70px;
+    z-index: 99;
+    background: #ffffff;
+    border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  }
+  .filterForm input, .filterForm select{
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #545F7D;
+    margin-bottom: 10px;
+  }
+  .filterForm p{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .filterForm .btnsection{
+    display: flex;
+    column-gap: 10px;
+  }
+  .filterForm button{
+    padding:5px 20px;
+    border-radius: 8px;
+    border: 1px solid #545F7D;
+    border-radius: 8px;
+  }
+  .filterForm .filter{
+    background: #39CDCC;
+    border: 1px solid #39CDCC;
+    color: #ffffff;
   }
 
   @media only screen and (max-width: 700px) {
