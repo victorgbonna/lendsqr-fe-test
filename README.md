@@ -43,7 +43,8 @@ P/S- the users page contains similar components to the dashboard page, so the fi
 - Spinner - This folder holds a spinner component that renders when an api is being fetched
 - Maintable- This folder holds the table for rendering the users array. There are child components: TableEntry, TableForPc, AccordionForMobile and filterForm. 
              TableForPc holds the html table for rendering users on a pc screen, while TableEntry are the table body/entries.
-             AccordionForMobile holds the html div for rendering users on a mobile screen. Filterform is the pop up form for filtering the users listed.
+             AccordionForMobile holds the html div for rendering users on a mobile screen. 
+             Filterform is the pop up form for filtering the users listed.  
 
 ### Hooks
 - UseAxios- This custom hook is for making API calls. It returns a dymamic response, error and loading state.

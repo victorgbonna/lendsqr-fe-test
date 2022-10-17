@@ -17,11 +17,11 @@ export default function FilterForm(
             }            
         }
         console.log({dataToBeFiltered})
-        // return
-        if (Object.keys(dataToBeFiltered)){
+
+        if (Object.keys(dataToBeFiltered).length){
             addFilter(dataToBeFiltered)
+            hideForm()
         }
-        hideForm()
     }
     const resetAction=()=>{
         setFilterForm({
@@ -51,26 +51,29 @@ export default function FilterForm(
             <p>Username</p>
             <input type="text" onChange={(e)=>setFilterForm({
                 ...filterForm, userName:e.target.value
-            })} value={filterForm.userName}/>
+            })} value={filterForm.userName} placeholder="username"/>
         </div>
         <div>
             <p>Email</p>
-            <input type="text" onChange={(e)=>setFilterForm({
+            <input type="text" placeholder='email' onChange={(e)=>setFilterForm({
                 ...filterForm, email:e.target.value
             })} value={filterForm.email}/>
         </div>
         <div>
-            <p>Date</p>
-            <input type="date" name='date'/>
+            <p>Date From</p>
+            <input placeholder='date from' type="number" min="1900" max="2099" step="1"  
+            onChange={(e)=>setFilterForm({
+                ...filterForm, date:e.target.value
+            })} value={filterForm.date}/>
         </div>
         <div>
             <p>Phone Number</p>
             <input type="text" name='phone' onChange={(e)=>setFilterForm({
                 ...filterForm, phoneNumber:e.target.value
-            })} value={filterForm.phoneNumber}/>
+            })} value={filterForm.phoneNumber} placeholder="phone"/>
         </div>
         <div>
-            <p>Status</p>
+            <p>Status &#40;inactive&#41;</p>
             <select name='status' defaultValue={''}>
                 <option value="">Any</option>
                 <option value="Pending">Pending</option>
