@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
-import Button from "../Button";
-import Spinner from "../Spinner";
+import Button from "../../components/Button";
+import Spinner from "../../components/Spinner";
 import "./UserDetail.scss";
 // import './Sidebar.css'
 

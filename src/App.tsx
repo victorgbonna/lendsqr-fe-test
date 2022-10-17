@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import NavBar from './components/NavBar';
 import SideBar from './components/Sidebar';
-import UserDetail from './components/UserDetail';
+import UserDetail from './pages/UserDetail';
 
 
 function App() {
