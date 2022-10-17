@@ -14,52 +14,59 @@
 
 - Clone the repo
 - npm install
-- 
+- npm start
 ### Map 
-###### This would entail every folder under the main "src" folder and their uses
-- pages- This would convert the data gotten from an array in a way it can be parsed for plotting
-- components- This contains every element except the container holding the chart plot.
-- hooks - This contains every element except the container holding the chart plot.
-- reducer - This contains every element except the container holding the chart plot.
-- constants- This holds the chart plot.
--fonts
+###### This would entail every folder une main "src" folder and their uses
+- pages- This folder contains  root components of every page.
+- components- This folder contains the reusable components.
+- hooks - This folder contains my custom hooks.
+- reducer - This folder contains the files involving the useReducer hook.
+- constants- This folder contains static data that are reusable but do not change states.
+-fonts- this folder was made as an alternative for the "Avenir Next" font as it was not available on google fonts.
 
-### Pages
-- login- holds the data gotten from the api endpoint with the request query. By default, it holds the data from http://139.59.76.169:4002/api/candles?instrument=NSE:SBIN&timeframe=15minute&from=2022-02-23&to=2022-03-04
-- dashboard- holds the data gotten from the api endpoint with the request query. By default, it holds the first element in the array response. 
-- userdetail- holds the data gotten from the api endpoint with the request query. By default, it holds the first element in the array response. 
+The routes are :- /login, /dashboard, /users, /users/detail.
+### Pages 
+- login- The file is the root component for the login page
+- dashboard- The file is the root component for the dashboard page 
+- userdetail- The file is the root component for the user detaiĺs page
+P/S- the users page contains similar components to the dashboard page, so the file was not created, rather the dashboard component was reused. 
 
 ### Components
-- Button- This would convert the data gotten from an array in a way it can be parsed for plotting
-- Card- This contains every element except the container holding the chart plot.
-- InputGroup - This contains every element except the container holding the chart plot.
-- Logo - This contains every element except the container holding the chart plot.
-- Navbar- This holds the chart plot.
-- Paginator - This contains every element except the container holding the chart plot.
-- Select - This contains every element except the container holding the chart plot.
-- Sidebar- This holds the chart plot.
-- Spinner - This contains every element except the container holding the chart plot.
-- Userdetail - This contains every element except the container holding the chart plot.
-- Maintable- This holds the chart plot.
+- Button- This folder holds the component for buttons.
+- Card- This folder holds each card section displayed in the users and dashboard pages.
+- InputGroup - This folder holds the component for the login inputs.
+- Logo - This folder renders the logo; it redirects to the home page when clicked upon.
+- Navbar- This folder renders the nav bar.
+- Paginator - This folder renders the pagination buttons.
+- Select - This folder renders a customized html select tag with a list of options passed in as an argument.
+- Sidebar- This folder renders the sidebar on the dashboard, users and the user detail page. It does not display on a mobile screen, but its child components are being reused on the navbar component. 
+- Spinner - This folder holds a spinner component that renders when an api is being fetched
+- Maintable- This folder holds the table for rendering the users array. There are child components: TableEntry, TableForPc, AccordionForMobile and filterForm. 
+             TableForPc holds the html table for rendering users on a pc screen, while TableEntry are the table body/entries.
+             AccordionForMobile holds the html div for rendering users on a mobile screen. Filterform is the pop up form for filtering the users listed.
 
 ### Hooks
-- UseAxios- This would convert the data gotten from an array in a way it can be parsed for plotting
-- UsePagination- This contains every element except the container holding the chart plot.
+- UseAxios- This custom hook is for making API calls. It returns a dymamic response, error and loading state.
+- UsePagination- This custom hook is for getting the paginated buttons.
 
 ### Constants
-- baseUrl- This would convert the data gotten from an array in a way it can be parsed for plotting
-- sideBarLinks- This contains every element except the container holding the chart plot.
+- baseUrl- This holds the api baseUrl.
+- sideBarLinks- This holds all the links on the side bar.
 
 ### Reducer
-- PaginatorReducer- This would convert the data gotten from an array in a way it can be parsed for plotting
+- PaginatorReducer- Due to the complex usestates and functionality needed for pagination - including selecting the number of rows and the functionality in the filter form, I decided to make use of the useReducer to handle such in a clean and tidy way. This folder has that. 
 
-Difficulties
-typescript and i wanted to add more UX to my files but time
+## Difficulties
+Doing this task was not that easy at all but I gave my all and learnt some things along the way. 
+
+My major challenge was with Typescript. I had a tough time tackling it, as I had little experience in it before the task.
+
+Time was not on my side too; I had to work on this while doing my 9-5 too. 
 
 ### Contact 
 - Email- victorgbonna@gmail.com
 - Whatsapp - +234 8102603301
 - Linkedln - [https://www.linkedin.com/in/victor-ogbonna-5a3113230](https://www.linkedin.com/in/victor-ogbonna-5a3113230)
--  Site Link: [https://victor-ogbonna-lendsqr-fe-test.vercel.app/]([https://victor-ogbonna-lendsqr-fe-test.vercel.app/])
+-  Site Link - [https://victor-ogbonna-lendsqr-fe-test.vercel.app](https://victor-ogbonna-lendsqr-fe-test.vercel.app/)
 
 
