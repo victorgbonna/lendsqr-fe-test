@@ -1,8 +1,9 @@
-import { useState} from "react";
 import TableEntry from "./TableEntry";
-import './Maintable.css'
+import './Maintable.scss'
+import React from "react";
 
-export default function TableForPc({users}:{users:Array<Object>}) {
+export default function TableForPc({users, setShowFilter}
+  :{users:Array<Object>, setShowFilter:() => void}) {
   
   const cols=[
     "ORGANIZATION", "USERNAME", "EMAIL", "PHONE NUMBER",
@@ -17,7 +18,11 @@ export default function TableForPc({users}:{users:Array<Object>}) {
             <th key={index}>
               <div style={{display:"flex", columnGap:"3px"}}>
                 <p>{col}</p> 
-                {(index!==6) && <img src="/svg/table/bar.svg" alt="bar icon"/>}
+                {(index!==6) && 
+                <img src="/svg/table/bar.svg" 
+                  onClick={setShowFilter}
+                  style={{cursor:"pointer"}}
+                  alt="bar icon"/>}
               </div>
               
             </th>

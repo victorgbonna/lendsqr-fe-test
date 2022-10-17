@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link, Router } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import './Maintable.css'
+import './Maintable.scss'
 
 export default function TableEntry({user}:{user: any}) {
   const navigate = useNavigate();
   const [showOptions, setShowOptions]= useState(0)
     const [status, setStatus]= useState(
-      user.key%4==0?'Pending':user.key%4==1?'Active':user.key%4==2?"Inactive":"Blacklisted"
+      user.key%4===0?'Pending':user.key%4===1?'Active':user.key%4===2?"Inactive":"Blacklisted"
     )
 
     const saveToLocalStorageB4redirect=(e:any)=>{
@@ -41,9 +41,9 @@ export default function TableEntry({user}:{user: any}) {
         <td style={{position:"relative"}}>
           <img src="/svg/table/3dots.svg" style={{
             cursor: "pointer"}} onClick={
-              (showOptions==user.id)?()=>setShowOptions(0):
+              (showOptions===user.id)?()=>setShowOptions(0):
               ()=>setShowOptions(user.id)}/>
-          {(showOptions==user.id) && 
+          {(showOptions===user.id) && 
           <div className='showDetails'>
             <Link to='/users/detail' onClick={saveToLocalStorageB4redirect}>
                 <img src="/svg/table/view.svg" alt="view" />

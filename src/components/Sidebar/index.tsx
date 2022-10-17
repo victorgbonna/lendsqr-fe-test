@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import sidebarLinks from "../../constants/sidebarLinks";
-import Logo from "../Logo";
-import './Sidebar.css'
+import './Sidebar.scss'
 import SideBarLink from "./sidebarLink";
 import TopLink from "./topLink";
 
@@ -11,9 +9,9 @@ export default function SideBar() {
       <aside className="asideParent">
         <TopLink/>
         <div className="aside-showOnlyOnPc">
-          <SideBarLink label="Customers" linkArray={customers}/>
-          <SideBarLink label="Business" linkArray={business}/>
-          <SideBarLink label="Settings" linkArray={settings} marginBottom={false}/>         
+          <SideBarLink onClick={()=>null} label="Customers" linkArray={customers}/>
+          <SideBarLink onClick={()=>null} label="Business" linkArray={business}/>
+          <SideBarLink onClick={()=>null} label="Settings" linkArray={settings} marginBottom={false}/>         
         </div>        
       </aside>
     );

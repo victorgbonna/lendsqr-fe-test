@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import sidebarLinks from "../../constants/sidebarLinks";
 import Logo from "../Logo";
 import SideBarLink from "../Sidebar/sidebarLink";
-import './NavBar.css'
+import TopLink from "../Sidebar/topLink";
+import './NavBar.scss'
 
 export default function NavBar() {
     interface IsideLinks {
@@ -75,10 +76,11 @@ export default function NavBar() {
                   Notifications
                 </Link>
               </div> 
+              <TopLink/>
               <div className="asidelinks">
                 <div className="nav-sidelink a" 
                 onClick={ 
-                  sidebarProps.label=="Customers"?
+                  sidebarProps.label==="Customers"?
                   ()=>setSidebarProps({
                     label:"", linkArray:[]
                   }):
@@ -87,10 +89,10 @@ export default function NavBar() {
                 })}>
                   <p>Customers</p>
                   <img src="/svg/aside/dropdown.svg" alt="dropdown" 
-                  className={sidebarProps.label=="Customers"?'actDrop':''}/>
+                  className={sidebarProps.label==="Customers"?'actDrop':''}/>
                 </div>
                 <div className="nav-sidelink a" onClick={
-                  sidebarProps.label=="Business"?
+                  sidebarProps.label==="Business"?
                   ()=>setSidebarProps({
                     label:"", linkArray:[]
                   }):
@@ -101,7 +103,7 @@ export default function NavBar() {
                   <img src="/svg/aside/dropdown.svg" alt="dropdown" className={sidebarProps.label=="Business"?'actDrop':''}/>
                 </div>
                 <div className="nav-sidelink a" onClick={
-                  sidebarProps.label=="Settings"?
+                  sidebarProps.label==="Settings"?
                   ()=>setSidebarProps({
                     label:"", linkArray:[]
                   }):()=>setSidebarProps({
@@ -111,7 +113,9 @@ export default function NavBar() {
                   <img src="/svg/aside/dropdown.svg" alt="dropdown" className={sidebarProps.label=="Settings"?'actDrop':''}/>
                 </div>
               </div> 
-              {sidebarProps.label && <SideBarLink label={sidebarProps.label} 
+              {sidebarProps.label && <SideBarLink 
+              onClick={()=>setShowNav(false)}
+              label={sidebarProps.label} 
               linkArray={sidebarProps.linkArray || []} marginBottom={false}/>}
               {/* <SideBarLink label="Customers" linkArray={customers}/>
               <SideBarLink label="Business" linkArray={business}/>

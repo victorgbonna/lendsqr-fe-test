@@ -1,4 +1,4 @@
-import './Logo.css'
+import './Logo.scss'
 
 export default function Logo() {
     return (

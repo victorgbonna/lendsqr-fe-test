@@ -1,30 +1,45 @@
 import { useRef, useState } from 'react';
-import './Maintable.css'
+import './Maintable.scss'
 
-export default function FilterForm({unShowForm, addFilter, reset}) {
-    const [filterForm, setFilterForm]= useState({})
+export default function FilterForm(
+        {hideForm, addFilter, reset, exFilterData}
+    ) {
+    const [filterForm, setFilterForm]= useState({...exFilterData})
     const filterAction=()=>{
         let dataToBeFiltered={}
+        const {userName, orgName, email, phoneNumber}= filterForm
+        console.log({userName, orgName, email, phoneNumber})
         for (const key in filterForm) {
+            // console.log({key})
             if(filterForm[key]){
-                dataToBeFiltered[key]=FilterForm[key]
+                // console.log({keyin:key})
+                dataToBeFiltered[key]=filterForm[key]
             }            
         }
+        console.log({dataToBeFiltered})
+        // return
         if (Object.keys(dataToBeFiltered)){
             addFilter(dataToBeFiltered)
         }
-        // unShowForm()
+        hideForm()
     }
-    const resetAction=(e)=>{
-        setFilterForm({})
+    const resetAction=()=>{
+        setFilterForm({
+            orgName:"",
+            email:"",
+            phoneNumber:"",
+            userName:""
+        })
         reset()
-        // unShowForm()
+        hideForm()
     }
     return (
     <div className='filterForm'>
         <div>
             <p>Organization</p>
-            <select name='orgName' defaultValue={''}>
+            <select name='orgName' onChange={(e)=>setFilterForm({
+                ...filterForm, orgName:e.target.value
+            })} value={filterForm.orgName} defaultValue={''}>
                 <option value="">Any</option>
                 <option value="accusamus-minima-repudiandae">accusamus-minima</option>
                 <option value="aliquam-velit-ab">aliquam-velit-ab</option>
@@ -34,11 +49,15 @@ export default function FilterForm({unShowForm, addFilter, reset}) {
         </div>
         <div>
             <p>Username</p>
-            <input type="text" />
+            <input type="text" onChange={(e)=>setFilterForm({
+                ...filterForm, userName:e.target.value
+            })} value={filterForm.userName}/>
         </div>
         <div>
             <p>Email</p>
-            <input type="text" name='email'/>
+            <input type="text" onChange={(e)=>setFilterForm({
+                ...filterForm, email:e.target.value
+            })} value={filterForm.email}/>
         </div>
         <div>
             <p>Date</p>
@@ -46,7 +65,9 @@ export default function FilterForm({unShowForm, addFilter, reset}) {
         </div>
         <div>
             <p>Phone Number</p>
-            <input type="text" name='phone'/>
+            <input type="text" name='phone' onChange={(e)=>setFilterForm({
+                ...filterForm, phoneNumber:e.target.value
+            })} value={filterForm.phoneNumber}/>
         </div>
         <div>
             <p>Status</p>

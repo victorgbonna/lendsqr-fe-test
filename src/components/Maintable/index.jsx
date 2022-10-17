@@ -5,7 +5,7 @@ import Paginator from "../Paginator";
 import Spinner from "../Spinner";
 import AccordionForMobile from "./AccordionForMobile";
 import FilterForm from "./FilterForm";
-import "./Maintable.css";
+import "./Maintable.scss";
 import TableForPc from "./TableForPc";
 
 
@@ -14,6 +14,7 @@ export default function Maintable() {
   let {error, response, loading}= useAxios({
     url:"/v1/users"
   })
+  const [showFilter, setShowFilter]= useState(false)
   const [state, dispatch] = useReducer(paginatorReducer, INITIAL_STATE);
   
   useEffect(() => {
@@ -27,13 +28,21 @@ export default function Maintable() {
   }
   return (
     <div className="maintableContainer">
-      <TableForPc users={state.filteredUsers.slice(state.skip,state.take+state.skip)}/>
-      <AccordionForMobile users={state.filteredUsers.slice(state.skip,state.take+state.skip)}/>
-      {/* <FilterForm reset={()=>
+      <TableForPc setShowFilter={()=>setShowFilter(!showFilter)} 
+        users={state.filteredUsers.slice(state.skip,state.take+state.skip)}/>
+
+      <AccordionForMobile setShowFilter={()=>setShowFilter(!showFilter)} 
+        users={state.filteredUsers.slice(state.skip,state.take+state.skip)}/>
+      
+      {showFilter && <FilterForm
+        exFilterData={state.filter} 
+        hideForm={()=>setShowFilter(false)}
+        reset={()=>
           dispatch({type:'RESET'})}
         addFilter={(data)=>
           dispatch({type:'FILTER_APPLIED', payload:data})}
-      /> */}
+      />}
+      
       <Paginator onPageClick={(
         {queryName, queryValue})=>
         dispatch({type:'QUERY_CHANGED', payload:{

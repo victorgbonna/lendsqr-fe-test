@@ -1,7 +1,13 @@
+$white: #FFFFFF;
+$red: #E4033B;
+$skyblue:#39CDCC;
+$worksans: 'Work Sans';
+
+
 .btn1, .btn2{
     border-radius: 8px;
     padding: 12px 16px;
-    font-family: 'Work Sans';
+    font-family: $worksans;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -10,12 +16,12 @@
     letter-spacing: 0.1em;
 }
 .btn1{
-    border: 1px solid #E4033B;
-    color: #E4033B;
+    border: 1px solid $red;
+    color: $red;
     width: fit-content;
 }
 .btn2{
-    border: 1px solid #39CDCC;
-    color: #39CDCC;
+    border: 1px solid $skyblue;
+    color: $skyblue;
     width: fit-content;
 }

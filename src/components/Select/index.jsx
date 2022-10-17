@@ -1,5 +1,5 @@
 import { useState } from "react"
-import './Select.css'
+import './Select.scss'
 
 export default function Select({options, onChange, value,
   }) {

@@ -1,24 +1,26 @@
-.formipt2{
-    font-family: "Inter";
-    font-size: 13px;
-    display: flex;
-    column-gap: 10px;
-    border-radius: 20px;
-    padding:8px 10px;
-    cursor: pointer;
-    border: 2px solid #ECF0F3;
+.formipt2 {
+  font-family: "Inter";
+  font-size: 13px;
+  display: flex;
+  column-gap: 10px;
+  border-radius: 20px;
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 2px solid #ECF0F3;
 }
-.optInp{
+
+.optInp {
   margin-bottom: 0;
   display: flex;
   column-gap: 10px;
   cursor: pointer;
   background: rgba(33, 63, 125, 0.1);
-  border-radius: 4px; 
+  border-radius: 4px;
   padding: 6px;
 }
 
-.listcontainer ul {
+.listcontainer {
+  ul {
     background: #ffffff;
     border: 2px solid #ECF0F3;
     z-index: 78;
@@ -31,15 +33,23 @@
     bottom: 110%;
     width: fit-content;
   }
-  .listcontainer li {
+
+  li {
     font-family: "Work Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     cursor: pointer;
     line-height: 20px;
+
     /* identical to box height, or 100% */
-  
+
     color: #0b213e;
     padding: 5px;
   }
+}
+@media only screen and (max-width: 750px) {
+  .listcontainer ul li{
+    font-size: 15px;
+  }
+}

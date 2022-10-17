@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import Button from "../Button";
 import Spinner from "../Spinner";
-import "./UserDetail.css";
+import "./UserDetail.scss";
 // import './Sidebar.css'
 
 
@@ -10,8 +10,10 @@ import "./UserDetail.css";
 // Get user details by id https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id 
 
 export default function UserDetail() {
+  const userId=JSON.parse(window.localStorage.getItem('userId')) ?? 1
+  
   let {error, response, loading}= useAxios({
-    url:"/v1/users/"+JSON.parse(window.localStorage.getItem('userId'))
+    url:"/v1/users/"+userId
   })
   
   console.log({error, response})

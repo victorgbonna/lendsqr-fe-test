@@ -2,13 +2,13 @@
 export const INITIAL_STATE = {
     filteredUsers:[],
     users:[],
-    currentPageIndex: 1,
     skip:0,
     take: 10,
     total:1,
+    initialTotal:1,
     filter:{
         org:"",
-        username:"",
+        userName:"",
         email:"",
         date:"",
         phone:"",
@@ -23,6 +23,7 @@ export const INITIAL_STATE = {
         return {
           ...state,
           total:action.payload.length,
+          initialTotal:action.payload.length,
           filteredUsers:action.payload,
           users:action.payload
         };
@@ -33,20 +34,27 @@ export const INITIAL_STATE = {
           [action.payload.queryName]: action.payload.queryValue,
         };
       case "FILTER_APPLIED":
-        console.log(action.payload,'filyer applied')
+        console.log(action.payload,'filter applied')
         let usersCopy=state.users
+        let ex_filter= state.filter
+        let new_filter= action.payload
+        console.log({state})
         for (const key in action.payload) {
             const element = action.payload[key];
-            usersCopy=usersCopy.filter(user=>user[key]==element)
+            console.log({element})
+            usersCopy=usersCopy.filter(user=>user[key]===element)
         }
         return {
+            ...state,
+            total:usersCopy.length,
             filteredUsers:usersCopy,
-            skip:0,
-            currentPageIndex:1
+            filter:{...ex_filter, ...new_filter},
+            skip:0
         };
       case "RESET":
         return {
           ...INITIAL_STATE,
+          total:state.initialTotal,
           filteredUsers:state.users
         };
       default:

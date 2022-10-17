@@ -1,8 +1,7 @@
-import './App.css';
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import './App.scss';
+import {Outlet, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import Users from './pages/Users';
 import NavBar from './components/NavBar';
 import SideBar from './components/Sidebar';
 import UserDetail from './components/UserDetail';
@@ -28,6 +27,7 @@ function App() {
 function NotFound() {
   return (
       <div>
+        <h1>I did not see this page in the figma UI</h1>
         <h4>Not Found</h4>
       </div>
   );

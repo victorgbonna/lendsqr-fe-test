@@ -1,6 +1,6 @@
 import Card from "../../components/Card";
 import Maintable from "../../components/Maintable";
-import './Dashboard.css'
+import './Dashboard.scss'
 
 export default function Dashboard() {
   const cardContents=[

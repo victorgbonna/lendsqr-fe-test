@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import sidebarLinks from "../../constants/sidebarLinks";
-import Logo from "../Logo";
-import './Sidebar.css'
+import './Sidebar.scss'
 
 export default function TopLink() {
     return (
