@@ -68,6 +68,11 @@
     .pagination>div{
         padding: 0 6px;
     }
+    .pagdiv{
+        padding: 0;
+        width: 100%;
+        flex-direction: column;
+    }
     .pc{
         display: none !important;
     }

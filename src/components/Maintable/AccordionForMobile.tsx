@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Logo.css'
+import './Maintable.css'
 
 export default function AccordionForMobile({users}:{users:Array<any>}) {
   const [actAcc, setActAcc] = useState(0);
@@ -25,7 +25,7 @@ export default function AccordionForMobile({users}:{users:Array<any>}) {
     navigate("/users/detail");
   }
     return (
-        <div className='mobile'>
+        <div className='accordion'>
         {users.map((user={}, index) => (
           <div
             key={index}
@@ -38,7 +38,7 @@ export default function AccordionForMobile({users}:{users:Array<any>}) {
           >
             <div className='accordflex'>
               <div className='accorddt'>
-                <h4>{user.username}</h4>
+                <h4>{user.userName}</h4>
                 <p>{user.orgName}</p>
               </div>
 
@@ -108,6 +108,12 @@ function AccordionList({
           <p>{user.phoneNumber}</p>
         </div>
         <div className='fields'>
+          <h5>Status</h5>
+          <div>
+            <p className='Pending'>Pending</p>
+          </div>
+        </div>
+        <div className='fields'>
           <h5>Date Created</h5>
           <p>
             {new Date(user.createdAt).toLocaleDateString("en-us", {
@@ -118,7 +124,7 @@ function AccordionList({
             })}
           </p>
         </div>
-        <div className='fields'>
+        <div className='fields optionsacc'>
           {/* <div
             className='alink'> */}
           <Link to='/users/detail' onClick={(e)=>saveToLocalStorageB4redirect(e, user.id)}>

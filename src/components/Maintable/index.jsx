@@ -3,6 +3,7 @@ import useAxios from "../../hooks/useAxios";
 import { INITIAL_STATE, paginatorReducer } from "../../reducer/paginatorReducer";
 import Paginator from "../Paginator";
 import Spinner from "../Spinner";
+import AccordionForMobile from "./AccordionForMobile";
 import FilterForm from "./FilterForm";
 import "./Maintable.css";
 import TableForPc from "./TableForPc";
@@ -27,11 +28,12 @@ export default function Maintable() {
   return (
     <div className="maintableContainer">
       <TableForPc users={state.filteredUsers.slice(state.skip,state.take+state.skip)}/>
-      <FilterForm reset={()=>
+      <AccordionForMobile users={state.filteredUsers.slice(state.skip,state.take+state.skip)}/>
+      {/* <FilterForm reset={()=>
           dispatch({type:'RESET'})}
         addFilter={(data)=>
           dispatch({type:'FILTER_APPLIED', payload:data})}
-      />
+      /> */}
       <Paginator onPageClick={(
         {queryName, queryValue})=>
         dispatch({type:'QUERY_CHANGED', payload:{
