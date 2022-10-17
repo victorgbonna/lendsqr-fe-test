@@ -28,7 +28,7 @@ export default function UserDetail() {
         </Link>
         <div className="flex" style={{justifyContent:"space-between"}}>
           <h3>User Details</h3>
-          <div className="flex" style={{columnGap:'20px'}}>
+          <div style={{columnGap:'20px', display:"flex", alignItems:"center"}}>
             <Button disabled={false} variants="btn1" label="BLACKLIST USER" onClick={()=>null}/>
             <Button disabled={false} variants="btn2" label="WHITELIST USER" onClick={()=>null}/>
           </div>
