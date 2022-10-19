@@ -48,7 +48,7 @@ export default function Maintable() {
         dispatch({type:'QUERY_CHANGED', payload:{
           queryName, queryValue
         }})
-      } currentPageIndex={state.skip} take={state.take}
+      } currentPageIndex={state.skip/state.take} take={state.take}
         total={state.total}
       />
     </div>
